@@ -53,14 +53,6 @@
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .logo img {
-            height: 32px;
-            width: auto;
         }
         
         .nav-links {
@@ -212,48 +204,9 @@
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
-        }
-        
-        /* Gallery Management */
-        .gallery-controls {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background: var(--light-bg);
-            border-radius: 12px;
-            border: 2px dashed #ddd;
-        }
-        
-        .gallery-instructions {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-        
-        .gallery-instructions h4 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .gallery-instructions ol {
-            margin-left: 1rem;
-            color: #666;
-        }
-        
-        .gallery-instructions li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .gallery-instructions code {
-            background: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
         }
         
         .gallery-item {
@@ -544,10 +497,7 @@
     <nav>
         <div class="container">
             <div class="nav-container">
-                <a href="#home" class="logo" onclick="showPage('home')">
-                    <img src="attached_assets/NextLayer Logo_1754083679482.png" alt="NextLayer 3D Logo">
-                    <span>NextLayer 3D</span>
-                </a>
+                <a href="#home" class="logo" onclick="showPage('home')">NextLayer 3D</a>
                 <ul class="nav-links">
                     <li><a href="#home" onclick="showPage('home')">Home</a></li>
                     <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
@@ -611,27 +561,7 @@
                 <h2 class="section-title">Our Gallery</h2>
                 <p class="section-subtitle">Explore our portfolio of successful 3D printing projects across various industries and applications</p>
                 
-                <!-- Gallery Management Instructions -->
-                <div class="gallery-controls">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">How to Add Your Projects</h3>
-                    <div class="gallery-instructions">
-                        <h4>To add new projects to your gallery:</h4>
-                        <ol>
-                            <li>Upload your project images to a hosting service (Google Photos, Imgur, or your own server)</li>
-                            <li>Copy the image URL (right-click image → "Copy image address")</li>
-                            <li>Duplicate one of the gallery items below in the HTML code</li>
-                            <li>Replace the <code>src</code> attribute with your image URL</li>
-                            <li>Update the title, description, material, and layer height</li>
-                            <li>Change the <code>alt</code> text to describe your project</li>
-                        </ol>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                            <strong>Tip:</strong> For best results, use images that are 600x400 pixels or similar aspect ratio (3:2).
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Gallery Grid - Add new projects by duplicating items below -->
-                <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Mechanical Prototype">
                         <div class="gallery-content">
@@ -698,21 +628,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Add more gallery items here by copying the structure above -->
-                    <!-- Example of how to add a new project:
-                    <div class="gallery-item">
-                        <img src="YOUR_IMAGE_URL_HERE" alt="Your Project Description">
-                        <div class="gallery-content">
-                            <h3>Your Project Title</h3>
-                            <p>Your project description here</p>
-                            <div class="gallery-meta">
-                                <span class="material">Material Type</span>
-                                <span>Layer Height</span>
-                            </div>
-                        </div>
-                    </div>
-                    -->
                 </div>
             </div>
         </section>
@@ -770,64 +685,78 @@
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Ready to bring your project to life? Contact us for a quote or consultation</p>
                 
-                <!-- Google Form Section -->
-                <div class="form-container" style="margin-bottom: 3rem;">
-                    <h3 style="text-align: center; margin-bottom: 2rem;">Request a Quote</h3>
-                    
-                    <!-- Google Form Embed Area -->
-                    <div style="background: #f8f9fa; border: 2px dashed #ddd; padding: 2rem; text-align: center; border-radius: 8px; min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🔗 Google Form Integration</h4>
-                        <p style="color: #666; margin-bottom: 1rem;">Replace this entire section with your Google Form embed code</p>
-                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: left;">
-                            <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">How to add your Google Form:</p>
-                            <ol style="color: #666; line-height: 1.6;">
-                                <li>Create your Google Form at <strong>forms.google.com</strong></li>
-                                <li>Click the <strong>Send</strong> button (top right)</li>
-                                <li>Click the <strong>&lt;&gt;</strong> (embed) tab</li>
-                                <li>Copy the iframe code</li>
-                                <li>Replace this entire div with your iframe code</li>
-                            </ol>
-                            <div style="background: #f0f0f0; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
-                                <code style="font-size: 0.8rem; color: #333;">
-                                    &lt;iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;
-                                </code>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Information Section -->
-                <div class="contact-info" style="max-width: 100%; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Contact Information</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
-                                <h4>📍 Address</h4>
+                                <h4>Address</h4>
                                 <p>123 Innovation Drive, Tech District<br>San Francisco, CA 94105</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
-                                <h4>📞 Phone</h4>
+                                <h4>Phone</h4>
                                 <p>(555) 123-4567</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
-                                <h4>✉️ Email</h4>
+                                <h4>Email</h4>
                                 <p>hello@nextlayer3d.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
-                                <h4>🕐 Business Hours</h4>
+                                <h4>Business Hours</h4>
                                 <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <h3>Request a Quote</h3>
+                        <p style="margin-bottom: 1.5rem; color: #666;">Fill out the form below or embed your Google Form by replacing this section with your Google Form iframe.</p>
+                        
+                        <!-- Google Form Embed Area -->
+                        <div style="background: #f8f9fa; border: 2px dashed #ddd; padding: 2rem; text-align: center; border-radius: 8px; margin-bottom: 2rem;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Google Form Integration</h4>
+                            <p style="color: #666; margin-bottom: 1rem;">Replace this section with your Google Form embed code:</p>
+                            <code style="background: white; padding: 0.5rem; border-radius: 4px; font-size: 0.8rem; color: #333;">
+                                &lt;<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScq4V-KbvTruFLNfb_9xAbXBjv2cEN9RFKxD26M8MDWQlbr1Q/viewform?embedded=true" width="640" height="1588" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>&gt;
+                            </code>
+                        </div>
+                        
+                        <!-- Demo Contact Form -->
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project">Project Type</label>
+                                <select id="project" name="project" required>
+                                    <option value="">Select project type</option>
+                                    <option value="prototype">Prototype Development</option>
+                                    <option value="custom">Custom Parts</option>
+                                    <option value="creative">Creative Project</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Project Description</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Submit Request</button>
+                        </form>
                     </div>
                 </div>
             </div>
