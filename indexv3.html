@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextLayer 3D - Professional 3D Printing Services</title>
+    <meta name="description" content="Professional 3D printing services for prototypes, custom parts, and creative projects. NextLayer 3D delivers precision and quality.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        :root {
+            --primary-color: #43af9c;
+            --secondary-color: #36686D;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Mobile navigation dropdown */
+        .mobile-nav-dropdown {
+            display: none;
+            background: var(--secondary-color);
+            padding: 1rem 0;
+            border-top: 1px solid #555;
+        }
+        
+        .mobile-nav-dropdown.active {
+            display: block;
+        }
+        
+        .mobile-nav-dropdown a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-nav-dropdown a:hover {
+            background-color: rgba(67, 175, 156, 0.2);
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: #f0f0f0;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Gallery Management */
+        .gallery-controls {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 12px;
+            border: 2px dashed #ddd;
+        }
+        
+        .gallery-instructions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .gallery-instructions h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-instructions ol {
+            margin-left: 1rem;
+            color: #666;
+        }
+        
+        .gallery-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-instructions code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-content {
+            padding: 1.5rem;
+        }
+        
+        .gallery-content h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+        
+        .material {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background: var(--light-bg);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+        
+        .contact-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .footer-section p,
+        .footer-section ul {
+            color: #ccc;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            /* Mobile-specific contact form styling */
+            .form-container {
+                margin: 0 -20px !important;
+                border-radius: 0 !important;
+            }
+            
+            .form-container > div {
+                margin: 0 !important;
+                border-radius: 0 !important;
+                min-height: 300px !important;
+            }
+            
+            /* Mobile logo adjustments */
+            .logo img {
+                height: 28px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            /* Mobile container padding */
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Mobile gallery adjustments */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Mobile team grid */
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Mobile section padding */
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        /* Hidden sections initially */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        #home.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo" onclick="showPage('home')">
+                    <img src="attached_assets/NextLayer Logo_1754083679482.png" alt="NextLayer 3D Logo">
+                    <span>NextLayer 3D</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
+                    <li><a href="#team" onclick="showPage('team')">About Team</a></li>
+                    <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <!-- Mobile dropdown menu -->
+            <div class="mobile-nav-dropdown" id="mobileNavDropdown">
+                <a href="#home" onclick="showPage('home'); closeMobileMenu()">Home</a>
+                <a href="#gallery" onclick="showPage('gallery'); closeMobileMenu()">Gallery</a>
+                <a href="#team" onclick="showPage('team'); closeMobileMenu()">About Team</a>
+                <a href="#contact" onclick="showPage('contact'); closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Bringing Your Ideas to Life</h1>
+                <p>Professional 3D printing services for prototypes, custom parts, and creative projects. From concept to reality, NextLayer delivers precision and quality.</p>
+                <div class="cta-buttons">
+                    <a href="#gallery" class="btn btn-primary" onclick="showPage('gallery')">View Our Work</a>
+                    <a href="#contact" class="btn btn-secondary" onclick="showPage('contact')">Get Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">From rapid prototyping to custom manufacturing, we provide comprehensive 3D printing solutions</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📦</div>
+                        <h3>Rapid Prototyping</h3>
+                        <p>Fast turnaround for product development and testing with high-precision prototypes.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Custom Parts</h3>
+                        <p>Specialized components and replacement parts manufactured to your exact specifications.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>Creative Projects</h3>
+                        <p>Artistic pieces, architectural models, and unique designs brought to life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page-section">
+        <section class="section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="section-subtitle">Explore our portfolio of successful 3D printing projects across various industries and applications</p>
+                
+                <!-- Gallery Management Instructions -->
+                <div class="gallery-controls">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">How to Add Your Projects</h3>
+                    <div class="gallery-instructions">
+                        <h4>To add new projects to your gallery:</h4>
+                        <ol>
+                            <li>Upload your project images to a hosting service (Google Photos, Imgur, or your own server)</li>
+                            <li>Copy the image URL (right-click image → "Copy image address")</li>
+                            <li>Duplicate one of the gallery items below in the HTML code</li>
+                            <li>Replace the <code>src</code> attribute with your image URL</li>
+                            <li>Update the title, description, material, and layer height</li>
+                            <li>Change the <code>alt</code> text to describe your project</li>
+                        </ol>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                            <strong>Tip:</strong> For best results, use images that are 600x400 pixels or similar aspect ratio (3:2).
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Grid - Add new projects by duplicating items below -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Mechanical Prototype">
+                        <div class="gallery-content">
+                            <h3>Mechanical Prototype</h3>
+                            <p>Complex gear assembly for automotive testing</p>
+                            <div class="gallery-meta">
+                                <span class="material">PLA Material</span>
+                                <span>0.2mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Architectural Model">
+                        <div class="gallery-content">
+                            <h3>Architectural Model</h3>
+                            <p>Scale model for urban development project</p>
+                            <div class="gallery-meta">
+                                <span class="material">ABS Material</span>
+                                <span>0.15mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Electronic Housing">
+                        <div class="gallery-content">
+                            <h3>Electronic Housing</h3>
+                            <p>Custom enclosure for IoT device</p>
+                            <div class="gallery-meta">
+                                <span class="material">PETG Material</span>
+                                <span>0.1mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Medical Device">
+                        <div class="gallery-content">
+                            <h3>Medical Device</h3>
+                            <p>Biocompatible prototype for medical testing</p>
+                            <div class="gallery-meta">
+                                <span class="material">Resin Material</span>
+                                <span>0.05mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Artistic Sculpture">
+                        <div class="gallery-content">
+                            <h3>Artistic Sculpture</h3>
+                            <p>Complex geometric art piece</p>
+                            <div class="gallery-meta">
+                                <span class="material">PLA Material</span>
+                                <span>0.12mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Manufacturing Jig">
+                        <div class="gallery-content">
+                            <h3>Manufacturing Jig</h3>
+                            <p>Precision fixture for assembly line</p>
+                            <div class="gallery-meta">
+                                <span class="material">ABS Material</span>
+                                <span>0.2mm Layer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more gallery items here by copying the structure above -->
+                    <!-- Example of how to add a new project:
+                    <div class="gallery-item">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Your Project Description">
+                        <div class="gallery-content">
+                            <h3>Your Project Title</h3>
+                            <p>Your project description here</p>
+                            <div class="gallery-meta">
+                                <span class="material">Material Type</span>
+                                <span>Layer Height</span>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Team Page -->
+    <div id="team" class="page-section">
+        <section class="section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">Our passionate team of engineers, designers, and makers who bring your ideas to life</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Alex Chen">
+                        <div class="member-info">
+                            <div class="member-name">Alex Chen</div>
+                            <div class="member-role">Lead Engineer & Founder</div>
+                            <div class="member-bio">10+ years in additive manufacturing and mechanical engineering. Specializes in complex prototyping and industrial applications.</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Sarah Martinez">
+                        <div class="member-info">
+                            <div class="member-name">Sarah Martinez</div>
+                            <div class="member-role">Design Specialist</div>
+                            <div class="member-bio">Expert in CAD design and design optimization for 3D printing. Focuses on automotive and aerospace applications.</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Michael Thompson">
+                        <div class="member-info">
+                            <div class="member-name">Michael Thompson</div>
+                            <div class="member-role">Production Manager</div>
+                            <div class="member-bio">Manages our printing operations and quality control. Expert in multi-material printing and post-processing techniques.</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Emma Wilson">
+                        <div class="member-info">
+                            <div class="member-name">Emma Wilson</div>
+                            <div class="member-role">Client Relations</div>
+                            <div class="member-bio">Helps clients bring their ideas to reality. Specializes in project consulting and technical support for new users.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-section">
+        <section class="section contact-section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to bring your project to life? Contact us for a quote or consultation</p>
+                
+                <!-- Google Form Section -->
+                <div class="form-container" style="margin-bottom: 3rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem;">Request a Quote</h3>
+                    
+                    <!-- Google Form Embed Area -->
+                    <div style="background: #f8f9fa; border: 2px dashed #ddd; padding: 2rem; text-align: center; border-radius: 8px; min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🔗 Google Form Integration</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Replace this entire section with your Google Form embed code</p>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: left;">
+                            <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">How to add your Google Form:</p>
+                            <ol style="color: #666; line-height: 1.6;">
+                                <li>Create your Google Form at <strong>forms.google.com</strong></li>
+                                <li>Click the <strong>Send</strong> button (top right)</li>
+                                <li>Click the <strong>&lt;&gt;</strong> (embed) tab</li>
+                                <li>Copy the iframe code</li>
+                                <li>Replace this entire div with your iframe code</li>
+                            </ol>
+                            <div style="background: #f0f0f0; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                                <code style="font-size: 0.8rem; color: #333;">
+                                    &lt;<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScq4V-KbvTruFLNfb_9xAbXBjv2cEN9RFKxD26M8MDWQlbr1Q/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>&gt;
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Information Section -->
+                <div class="contact-info" style="max-width: 100%; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Contact Information</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div class="contact-details">
+                                <h4>📍 Address</h4>
+                                <p>123 Innovation Drive, Tech District<br>San Francisco, CA 94105</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div class="contact-details">
+                                <h4>📞 Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div class="contact-details">
+                                <h4>✉️ Email</h4>
+                                <p>hello@nextlayer3d.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div class="contact-details">
+                                <h4>🕐 Business Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NextLayer 3D</h3>
+                    <p>Professional 3D printing services bringing your ideas to life with precision and quality.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Rapid Prototyping</a></li>
+                        <li><a href="#">Custom Parts</a></li>
+                        <li><a href="#">Creative Projects</a></li>
+                        <li><a href="#">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Materials</h3>
+                    <ul>
+                        <li><a href="#">PLA</a></li>
+                        <li><a href="#">ABS</a></li>
+                        <li><a href="#">PETG</a></li>
+                        <li><a href="#">Resin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>123 Innovation Drive</li>
+                        <li>San Francisco, CA 94105</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@nextlayer3d.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NextLayer 3D Printing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update URL hash
+            window.location.hash = pageId;
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+
+        // Initialize page on load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon. (This is a demo form - replace with your Google Form)');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
+            mobileNavDropdown.classList.toggle('active');
+        }
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
+            mobileNavDropdown.classList.remove('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
+            const mobileMenuButton = document.querySelector('.mobile-menu');
+            
+            if (!nav.contains(event.target) && mobileNavDropdown.classList.contains('active')) {
+                mobileNavDropdown.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
