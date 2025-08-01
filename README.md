@@ -1,1 +1,0 @@
-# NextLayer3d.github.io
