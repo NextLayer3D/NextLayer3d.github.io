@@ -95,32 +95,6 @@
             transition: 0.3s;
         }
         
-        /* Mobile navigation dropdown */
-        .mobile-nav-dropdown {
-            display: none;
-            background: var(--secondary-color);
-            padding: 1rem 0;
-            border-top: 1px solid #555;
-        }
-        
-        .mobile-nav-dropdown.active {
-            display: block;
-        }
-        
-        .mobile-nav-dropdown a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-        
-        .mobile-nav-dropdown a:hover {
-            background-color: rgba(67, 175, 156, 0.2);
-            color: var(--primary-color);
-        }
-        
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -549,49 +523,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
-            /* Mobile-specific contact form styling */
-            .form-container {
-                margin: 0 -20px !important;
-                border-radius: 0 !important;
-            }
-            
-            .form-container > div {
-                margin: 0 !important;
-                border-radius: 0 !important;
-                min-height: 300px !important;
-            }
-            
-            /* Mobile logo adjustments */
-            .logo img {
-                height: 28px;
-            }
-            
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-            /* Mobile container padding */
-            .container {
-                padding: 0 15px;
-            }
-            
-            /* Mobile gallery adjustments */
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Mobile team grid */
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Mobile section padding */
-            .section {
-                padding: 60px 0;
-            }
         }
         
         /* Hidden sections initially */
@@ -628,13 +559,6 @@
                     <span></span>
                     <span></span>
                 </div>
-            </div>
-            <!-- Mobile dropdown menu -->
-            <div class="mobile-nav-dropdown" id="mobileNavDropdown">
-                <a href="#home" onclick="showPage('home'); closeMobileMenu()">Home</a>
-                <a href="#gallery" onclick="showPage('gallery'); closeMobileMenu()">Gallery</a>
-                <a href="#team" onclick="showPage('team'); closeMobileMenu()">About Team</a>
-                <a href="#contact" onclick="showPage('contact'); closeMobileMenu()">Contact</a>
             </div>
         </div>
     </nav>
@@ -852,17 +776,7 @@
                     
                     <!-- Google Form Embed Area -->
                     <div style="background: #f8f9fa; border: 2px dashed #ddd; padding: 2rem; text-align: center; border-radius: 8px; min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🔗 Google Form Integration</h4>
-                        <p style="color: #666; margin-bottom: 1rem;">Replace this entire section with your Google Form embed code</p>
                         <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: left;">
-                            <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">How to add your Google Form:</p>
-                            <ol style="color: #666; line-height: 1.6;">
-                                <li>Create your Google Form at <strong>forms.google.com</strong></li>
-                                <li>Click the <strong>Send</strong> button (top right)</li>
-                                <li>Click the <strong>&lt;&gt;</strong> (embed) tab</li>
-                                <li>Copy the iframe code</li>
-                                <li>Replace this entire div with your iframe code</li>
-                            </ol>
                             <div style="background: #f0f0f0; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
                                 <code style="font-size: 0.8rem; color: #333;">
                                     &lt;<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScq4V-KbvTruFLNfb_9xAbXBjv2cEN9RFKxD26M8MDWQlbr1Q/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>&gt;
@@ -879,22 +793,15 @@
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
-                                <h4>📍 Address</h4>
-                                <p>123 Innovation Drive, Tech District<br>San Francisco, CA 94105</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <div class="contact-details">
                                 <h4>📞 Phone</h4>
-                                <p>(555) 123-4567</p>
+                                <p>(408)-409-9619</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
                             <div class="contact-details">
                                 <h4>✉️ Email</h4>
-                                <p>hello@nextlayer3d.com</p>
+                                <p>nextlayer.designs@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -994,26 +901,9 @@
 
         // Mobile menu toggle
         function toggleMobileMenu() {
-            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
-            mobileNavDropdown.classList.toggle('active');
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         }
-        
-        // Close mobile menu
-        function closeMobileMenu() {
-            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
-            mobileNavDropdown.classList.remove('active');
-        }
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const mobileNavDropdown = document.getElementById('mobileNavDropdown');
-            const mobileMenuButton = document.querySelector('.mobile-menu');
-            
-            if (!nav.contains(event.target) && mobileNavDropdown.classList.contains('active')) {
-                mobileNavDropdown.classList.remove('active');
-            }
-        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
