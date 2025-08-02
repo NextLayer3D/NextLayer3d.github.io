@@ -335,6 +335,185 @@
                 color: var(--primary-color);
                 font-weight: 600;
             }
+            
+            /* Gallery item clickable */
+            .gallery-item {
+                cursor: pointer;
+            }
+
+            /* Gallery Detail Page Styles */
+            .gallery-detail-page {
+                display: none;
+                padding-top: 80px;
+                min-height: 100vh;
+                background: white;
+            }
+            
+            .gallery-detail-page.active {
+                display: block;
+            }
+            
+            .back-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--secondary-color);
+                color: white;
+                padding: 0.75rem 1.5rem;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+                margin-bottom: 2rem;
+            }
+            
+            .back-button:hover {
+                background: var(--primary-color);
+            }
+            
+            .detail-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+            
+            .image-carousel {
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            }
+            
+            .carousel-image {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                display: none;
+            }
+            
+            .carousel-image.active {
+                display: block;
+            }
+            
+            .carousel-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 1.2rem;
+                transition: background-color 0.3s ease;
+            }
+            
+            .carousel-nav:hover {
+                background: rgba(0,0,0,0.7);
+            }
+            
+            .carousel-prev {
+                left: 10px;
+            }
+            
+            .carousel-next {
+                right: 10px;
+            }
+            
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+            
+            .carousel-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ddd;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            
+            .carousel-dot.active {
+                background: var(--primary-color);
+            }
+            
+            .detail-info h1 {
+                font-size: 2.5rem;
+                color: var(--text-color);
+                margin-bottom: 1rem;
+            }
+            
+            .detail-meta {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                padding: 1rem;
+                background: var(--light-bg);
+                border-radius: 8px;
+            }
+            
+            .detail-meta-item {
+                text-align: center;
+            }
+            
+            .detail-meta-label {
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 0.25rem;
+            }
+            
+            .detail-meta-value {
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+            
+            .detail-description {
+                font-size: 1.1rem;
+                line-height: 1.7;
+                color: #555;
+                margin-bottom: 2rem;
+            }
+            
+            .detail-features {
+                background: white;
+                border: 2px solid var(--light-bg);
+                border-radius: 12px;
+                padding: 1.5rem;
+            }
+            
+            .detail-features h3 {
+                color: var(--primary-color);
+                margin-bottom: 1rem;
+            }
+            
+            .detail-features ul {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .detail-features li {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .detail-features li:last-child {
+                border-bottom: none;
+            }
+            
+            .detail-features li::before {
+                content: "✓";
+                color: var(--primary-color);
+                font-weight: bold;
+            }
 
             /* Team Grid */
             .team-grid {
@@ -562,14 +741,28 @@
 
                 /* Mobile-specific contact form styling */
                 .form-container {
-                    margin: 0 -20px !important;
+                    margin: 0 -15px !important;
                     border-radius: 0 !important;
+                    padding: 1rem !important;
+                    box-shadow: none !important;
                 }
 
                 .form-container > div {
                     margin: 0 !important;
                     border-radius: 0 !important;
-                    min-height: 300px !important;
+                    min-height: 400px !important;
+                    padding: 1rem !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                
+                /* Ensure Google Form iframes fill width on mobile */
+                .form-container iframe {
+                    width: 100% !important;
+                    min-width: 100% !important;
+                    max-width: 100% !important;
+                    border: none !important;
+                    height: 500px !important;
                 }
 
                 /* Mobile logo adjustments */
@@ -601,6 +794,28 @@
                 /* Mobile section padding */
                 .section {
                     padding: 60px 0;
+                }
+                
+                /* Mobile gallery detail pages */
+                .detail-content {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                
+                .carousel-image {
+                    height: 250px;
+                }
+                
+                .detail-meta {
+                    gap: 1rem;
+                }
+                
+                .detail-meta-item {
+                    flex: 1;
+                }
+                
+                .detail-info h1 {
+                    font-size: 2rem;
                 }
             }
 
@@ -698,13 +913,13 @@
                             href="#gallery"
                             class="btn btn-primary"
                             onclick="showPage('gallery')"
-                            >View Our Work</a
+                            >View Our Gallery</a
                         >
                         <a
                             href="#contact"
                             class="btn btn-secondary"
                             onclick="showPage('contact')"
-                            >Get Quote</a
+                            >Fill out order form</a
                         >
                     </div>
                 </div>
@@ -722,26 +937,23 @@
                     <div class="services-grid">
                         <div class="service-card">
                             <div class="service-icon">📦</div>
-                            <h3>Rapid Prototyping</h3>
+                            <h3>Rapid manufacturing</h3>
                             <p>
-                                Fast turnaround for product development and
-                                testing with high-precision prototypes.
+                                Get your design printed in as little as 24 hours.
                             </p>
                         </div>
                         <div class="service-card">
                             <div class="service-icon">⚙️</div>
-                            <h3>Custom Parts</h3>
+                            <h3>Custom Modeling</h3>
                             <p>
-                                Specialized components and replacement parts
-                                manufactured to your exact specifications.
+                                Experienced CAD designers working with you every step of the way to deliver high quality products.
                             </p>
                         </div>
                         <div class="service-card">
                             <div class="service-icon">🎨</div>
-                            <h3>Creative Projects</h3>
+                            <h3>Colorful prints</h3>
                             <p>
-                                Artistic pieces, architectural models, and
-                                unique designs brought to life.
+                                Choose from a wide range of colors for your finished product. 
                             </p>
                         </div>
                     </div>
@@ -756,11 +968,12 @@
                     <h2 class="section-title">Our Gallery</h2>
                     <p class="section-subtitle">
                         Explore our portfolio of successful 3D printing projects
-                        across various industries and applications
                     </p>
+
+                    <!-- Gallery Management Instructions -->
                     <!-- Gallery Grid - Add new projects by duplicating items below -->
                     <div class="gallery-grid" id="galleryGrid">
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="showProjectDetail('project1')">
                             <img
                                 src="attached_assets/Cascade_Wallet.png"
                                 alt="5 Card Cascading Wallet"
@@ -775,7 +988,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="showProjectDetail('project2')">
                             <img
                                 src="attached_assets/Stationary_holder.png"
                                 alt="Calculator Stationary holder"
@@ -790,6 +1003,20 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="gallery-item" onclick="showProjectDetail('project3')">
+                            <img
+                                src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+                                alt="Cable Catch Tray"
+                            />
+                            <div class="gallery-content">
+                                <h3>Cable catch Tray</h3>
+                                <p>A cable catcher that prevents cables from falling</p>
+                                <div class="gallery-meta">
+                                    <span class="material">PLA/PETG</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Add more gallery items here by copying the structure above -->
                         <!-- Example of how to add a new project:
                     <div class="gallery-item">
@@ -807,14 +1034,15 @@
                 </div>
             </section>
         </div>
+
         <!-- Team Page -->
         <div id="team" class="page-section">
             <section class="section" style="padding-top: 120px">
                 <div class="container">
                     <h2 class="section-title">Meet Our Team</h2>
                     <p class="section-subtitle">
-                        Our passionate team of engineers, designers, and makers
-                        who bring your ideas to life
+                        Our passionate team of engineers, designers, and printers 
+                        that bring your ideas to life; one layer at a time.
                     </p>
 
                     <div class="team-grid">
@@ -885,15 +1113,14 @@
                 <div class="container">
                     <h2 class="section-title">Get In Touch</h2>
                     <p class="section-subtitle">
-                        Ready to bring your project to life? Contact us for a
-                        quote or consultation
+                        Ready to bring your project to life? Contact us by filling out the form below!
                     </p>
 
                     <!-- Google Form Section -->
                     <div class="form-container" style="margin-bottom: 3rem">
-                        <h3 style="text-align: center; margin-bottom: 2rem">
-                            <a href="https://forms.gle/u95aR33oCBzfM1pj6">Click here for Order Form</a>
-                        </h3>
+                        <h2 style="text-align: center; margin-bottom: 2rem">
+                            <a href="https://forms.gle/u95aR33oCBzfM1pj6" style="text-decoration: none; color: inherit;"><u>Click here for Order Form</u></a>
+                        </h2>
 
                         <!-- Google Form Embed Area -->
                         <div
@@ -909,6 +1136,7 @@
                                 justify-content: center;
                             "
                         >
+                           
                                 <div
                                     style="
                                         background: #f0f0f0;
@@ -920,7 +1148,7 @@
                                     <code
                                         style="font-size: 0.8rem; color: #333"
                                     >
-                                        &lt;<iframe
+                                        <iframe
                                             src="https://docs.google.com/forms/d/e/1FAIpQLScq4V-KbvTruFLNfb_9xAbXBjv2cEN9RFKxD26M8MDWQlbr1Q/viewform?embedded=true"
                                             width="100%"
                                             height="1000"
@@ -977,14 +1205,14 @@
                                 <div class="contact-icon"></div>
                                 <div class="contact-details">
                                     <h4>✉️ Email</h4>
-                                    <p>nextlayer.designs@gmail.com</p>
+                                    <p><a href="mailto:nextlayer.designs@gmail.com" style="text-decoration: none; color: inherit;"><u>nextlayer.designs@gmail.com</u></a></p>
                                 </div>
                             </div>
                             <div class="contact-item">
                                 <div class="contact-icon"></div>
                                 <div class="contact-details">
                                     <h4>✉️ Social Media</h4>
-                                    <a href="https://www.instagram.com/nextlayer.printing/?next=/" style="text-decoration: none; color: inherit;"> Instagram: <u>@nextlayer.printing</u></a>
+                                    <p><a href="https://www.instagram.com/nextlayer.printing/?next=/" style="text-decoration: none; color: inherit;"> Instagram: <u>@nextlayer.printing</u></a></p>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -996,6 +1224,390 @@
                                         10:00 AM - 4:00 PM
                                     </p>
                                 </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Gallery Detail Pages -->
+        <!-- Project 1 Detail -->
+        <div id="project1" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="attached_assets/Cascade_Wallet.png" alt="Cascading Wallet" class="carousel-image active">
+                                <img src="attached_assets/Cascade_Wallet_2.png" alt="Open Wallet" class="carousel-image">
+                                <img src="attached_assets/Cascade_Wallet_3.gif" alt="Rotating Wallet" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project1', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project1', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project1', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project1', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project1', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Cascading Wallet</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">PLA/PETG</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Dimensions</div>
+                                    <div class="detail-meta-value">60mm x 15mm x 103mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Print Time</div>
+                                    <div class="detail-meta-value">2 Hours</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                A simple 5 Card Cascading Wallet printed in a single piece. No assembly required, and is rugged enough to stand up agains the elements. The wallet can be customized with logos instead of a money clip for extra.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>5 Card Capacity</li>
+                                    <li>Precision Cascade mechanism</li>
+                                    <li>Stress-tested for daily use</li>
+                                    <li>Custom pieces</li>
+                                    <li>Sleek and Simple Finish</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Project 2 Detail -->
+        <div id="project2" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="attached_assets/Stationary_holder.png" alt="Architectural Model View 1" class="carousel-image active">
+                                <img src="attached_assets/Stationary_holder_2.png" alt="Architectural Model View 2" class="carousel-image">
+                                <img src="attached_assets/Stationary_holder_2.png" alt="Architectural Model View 3" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project2', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project2', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project2', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project2', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project2', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Stationary Clip</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">PLA/PETG</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Dimensions</div>
+                                    <div class="detail-meta-value">90mm x 22mm x 12mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Print time</div>
+                                    <div class="detail-meta-value">30 minutes</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                A compact, 3D-printed clip designed to attach securely to the back of a TI-84 calculator. Perfect for holding pens, pencils, or small stationery, this lightweight accessory keeps your essentials within reach during exams or study sessions. Durable, functional, and easy to snap on or off as needed.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>Compact and sleek design</li>
+                                    <li>Holds up to 6 pens or pencils</li>
+                                    <li>customizable for other stationary</li>
+                                    <li>Rugged and useful for everyday life</li>
+                                    <li>Built by students, for students</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Project 3 Detail -->
+        <div id="project3" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Electronic Housing View 1" class="carousel-image active">
+                                <img src="attached_assets/Cable_Catcher_2.png" alt="Electronic Housing View 2" class="carousel-image">
+                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Electronic Housing View 3" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project3', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project3', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project3', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project3', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project3', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Cable Catcher</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">PLA/PETG</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Dimensions</div>
+                                    <div class="detail-meta-value">71mm x 62mm x 48mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Print time</div>
+                                    <div class="detail-meta-value">1 hour</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                Custom cable catcher to stop loose cables from falling behind your desk. Great for seperating clumped cables, or holding up thinner cables.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>Weatherproof IP65 rated design</li>
+                                    <li>Precision cutouts for electronic components</li>
+                                    <li>Integrated cable strain relief</li>
+                                    <li>UV-resistant PETG material</li>
+                                    <li>Tool-free assembly with snap-fit design</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Project 4 Detail -->
+        <div id="project4" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Medical Device View 1" class="carousel-image active">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Medical Device View 2" class="carousel-image">
+                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Medical Device View 3" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project4', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project4', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project4', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project4', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project4', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Medical Device</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">Biocompatible Resin</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Layer Height</div>
+                                    <div class="detail-meta-value">0.05mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Certification</div>
+                                    <div class="detail-meta-value">USP Class VI</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                Biocompatible prototype for medical testing applications. This device was printed using USP Class VI certified resin suitable for temporary skin contact. The design features smooth surfaces and rounded edges for patient comfort, with precise dimensional accuracy critical for medical applications.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>USP Class VI biocompatible material</li>
+                                    <li>Ultra-high resolution 0.05mm layers</li>
+                                    <li>Smooth surface finish for patient comfort</li>
+                                    <li>Sterilizable design and materials</li>
+                                    <li>Precision tolerances for medical applications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Project 5 Detail -->
+        <div id="project5" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Artistic Sculpture View 1" class="carousel-image active">
+                                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Artistic Sculpture View 2" class="carousel-image">
+                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Artistic Sculpture View 3" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project5', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project5', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project5', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project5', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project5', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Artistic Sculpture</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">PLA</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Layer Height</div>
+                                    <div class="detail-meta-value">0.12mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Height</div>
+                                    <div class="detail-meta-value">24 inches</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                This complex geometric art piece showcases the capabilities of 3D printing in creating intricate artistic works. The sculpture features flowing curves and impossible geometries that would be extremely difficult to achieve with traditional manufacturing methods. Each element was carefully designed to print without supports while maintaining structural integrity.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>Complex interlocking geometric patterns</li>
+                                    <li>Support-free printing design</li>
+                                    <li>Multiple color transitions</li>
+                                    <li>Museum-quality finish</li>
+                                    <li>Mathematically precise curves and angles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Project 6 Detail -->
+        <div id="project6" class="gallery-detail-page">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <a href="#gallery" class="back-button" onclick="showPage('gallery')">
+                        ← Back to Gallery
+                    </a>
+                    
+                    <div class="detail-content">
+                        <div class="detail-images">
+                            <div class="image-carousel">
+                                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Manufacturing Jig View 1" class="carousel-image active">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Manufacturing Jig View 2" class="carousel-image">
+                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Manufacturing Jig View 3" class="carousel-image">
+                                
+                                <button class="carousel-nav carousel-prev" onclick="changeImage('project6', -1)">‹</button>
+                                <button class="carousel-nav carousel-next" onclick="changeImage('project6', 1)">›</button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <span class="carousel-dot active" onclick="currentImage('project6', 1)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project6', 2)"></span>
+                                <span class="carousel-dot" onclick="currentImage('project6', 3)"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-info">
+                            <h1>Manufacturing Jig</h1>
+                            
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Material</div>
+                                    <div class="detail-meta-value">ABS</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Layer Height</div>
+                                    <div class="detail-meta-value">0.2mm</div>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <div class="detail-meta-label">Tolerance</div>
+                                    <div class="detail-meta-value">±0.1mm</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-description">
+                                Precision manufacturing jig designed for assembly line production. This fixture ensures consistent positioning and alignment of components during assembly, reducing production time and improving quality control. The jig features guide rails, clamping mechanisms, and reference points for automated assembly processes.
+                            </div>
+                            
+                            <div class="detail-features">
+                                <h3>Project Features</h3>
+                                <ul>
+                                    <li>High-precision tolerances for manufacturing</li>
+                                    <li>Durable ABS construction for industrial use</li>
+                                    <li>Quick-release clamping mechanisms</li>
+                                    <li>Modular design for different part configurations</li>
+                                    <li>Cost-effective alternative to machined fixtures</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1008,25 +1620,25 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>NextLayer 3D</h3>
-                        <p>
-                            Professional 3D printing services bringing your
-                            ideas to life with precision and quality.
-                        </p>
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Custom Modeling</a></li>
+                            <li><a href="#">3D Printing</a></li>
+                        </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Contact</h3>
                         <ul>
                             <li>Pleasanton, CA 94566-94588</li>
-                            <li>nextlayer.designs@gmail.com</li>
-                            <li>(408) 409-9619</li>
                             <li>(510) 876-1919</li>
+                            <li>(408) 409-9619</li>
+                            <li><a href="mailto:nextlayer.designs@gmail.com", style="text-decoration: none; color: inherit;"><u>nextlayer.designs@gmail.com</u></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer-bottom">
                     <p>
-                        &copy; 2024 NextLayer 3D Printing. All rights reserved.
+                        NextLayer Printing. Bring your dreams to life, one layer at a time.
                     </p>
                 </div>
             </div>
@@ -1100,6 +1712,109 @@
                     mobileNavDropdown.classList.contains("active")
                 ) {
                     mobileNavDropdown.classList.remove("active");
+                }
+            });
+
+            // Gallery project detail navigation
+            function showProjectDetail(projectId) {
+                // Hide all pages
+                const pages = document.querySelectorAll(".page-section, .gallery-detail-page");
+                pages.forEach((page) => page.classList.remove("active"));
+
+                // Show selected project detail page
+                document.getElementById(projectId).classList.add("active");
+
+                // Update URL hash
+                window.location.hash = projectId;
+            }
+
+            // Image carousel functionality
+            let currentImageIndex = {};
+
+            function changeImage(projectId, direction) {
+                const carousel = document.querySelector(`#${projectId} .image-carousel`);
+                const images = carousel.querySelectorAll('.carousel-image');
+                const dots = document.querySelector(`#${projectId} .carousel-dots`).querySelectorAll('.carousel-dot');
+                
+                if (!currentImageIndex[projectId]) {
+                    currentImageIndex[projectId] = 1;
+                }
+                
+                // Hide current image
+                images[currentImageIndex[projectId] - 1].classList.remove('active');
+                dots[currentImageIndex[projectId] - 1].classList.remove('active');
+                
+                // Calculate new index
+                currentImageIndex[projectId] += direction;
+                if (currentImageIndex[projectId] > images.length) {
+                    currentImageIndex[projectId] = 1;
+                } else if (currentImageIndex[projectId] < 1) {
+                    currentImageIndex[projectId] = images.length;
+                }
+                
+                // Show new image
+                images[currentImageIndex[projectId] - 1].classList.add('active');
+                dots[currentImageIndex[projectId] - 1].classList.add('active');
+            }
+
+            function currentImage(projectId, imageIndex) {
+                const carousel = document.querySelector(`#${projectId} .image-carousel`);
+                const images = carousel.querySelectorAll('.carousel-image');
+                const dots = document.querySelector(`#${projectId} .carousel-dots`).querySelectorAll('.carousel-dot');
+                
+                // Hide all images
+                images.forEach(img => img.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show selected image
+                images[imageIndex - 1].classList.add('active');
+                dots[imageIndex - 1].classList.add('active');
+                
+                currentImageIndex[projectId] = imageIndex;
+            }
+
+            // Initialize carousel for each project
+            function initializeCarousels() {
+                const projects = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6'];
+                projects.forEach(projectId => {
+                    currentImageIndex[projectId] = 1;
+                });
+            }
+
+            // Updated page navigation to handle gallery details
+            function showPage(pageId) {
+                // Hide all pages and gallery detail pages
+                const pages = document.querySelectorAll(".page-section, .gallery-detail-page");
+                pages.forEach((page) => page.classList.remove("active"));
+
+                // Show selected page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add("active");
+                }
+
+                // Update URL hash
+                window.location.hash = pageId;
+            }
+
+            // Updated hash change handler for gallery details
+            window.addEventListener("hashchange", function () {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    showPage(hash);
+                } else {
+                    showPage("home");
+                }
+            });
+
+            // Updated initialization for gallery details
+            window.addEventListener("load", function () {
+                initializeCarousels();
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    showPage(hash);
+                } else {
+                    showPage("home");
                 }
             });
 
