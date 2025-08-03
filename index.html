@@ -340,6 +340,59 @@
             .gallery-item {
                 cursor: pointer;
             }
+            /* Filament Options Styles */
+            .filament-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            }
+
+            .filament-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            }
+
+            .filament-card:hover {
+            transform: translateY(-5px);
+            }
+
+            .filament-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            }
+
+            .filament-content {
+            padding: 1.5rem;
+            }
+
+            .filament-content h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            }
+
+            .filament-details {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            }
+
+            .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            }
+
+            .detail-item:last-child {
+            margin-bottom: 0;
+            }
 
             /* Gallery Detail Page Styles */
             .gallery-detail-page {
@@ -1005,12 +1058,12 @@
                         </div>
                         <div class="gallery-item" onclick="showProjectDetail('project3')">
                             <img
-                                src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                                alt="Cable Catch Tray"
+                                src="attached_assets/Headphone_Hanger.png"
+                                alt="Headphone Hanger"
                             />
                             <div class="gallery-content">
-                                <h3>Cable catch Tray</h3>
-                                <p>A cable catcher that prevents cables from falling</p>
+                                <h3>Headphone Hanger</h3>
+                                <p>Lightweight and minimal headphone hanger</p>
                                 <div class="gallery-meta">
                                     <span class="material">PLA/PETG</span>
                                 </div>
@@ -1106,6 +1159,76 @@
                 </div>
             </section>
         </div>
+    <!-- Filament Options Page -->
+        <div id="filamentOptions" class="page-section">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <h2 class="section-title">Filament Options</h2>
+                    <p class="section-subtitle">
+                        Choose from our wide range of high-quality filaments for your 3D printing projects
+                    </p>
+
+                    <div class="services-grid" style="margin-top: 3rem;">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="PLA Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>PLA (Polylactic Acid)</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Easy to Print:</strong> Perfect for beginners</p>
+                                <p><strong>Eco-Friendly:</strong> Biodegradable material</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="ABS Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>ABS (Acrylonitrile Butadiene Styrene)</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Durable:</strong> High impact resistance</p>
+                                <p><strong>Heat Resistant:</strong> Can withstand higher temperatures</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="PETG Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>PETG (Polyethylene Terephthalate Glycol)</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Crystal Clear:</strong> Excellent transparency</p>
+                                <p><strong>Chemical Resistant:</strong> Great for functional parts</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="TPU Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>TPU (Thermoplastic Polyurethane)</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Flexible:</strong> Rubber-like properties</p>
+                                <p><strong>Shock Absorbing:</strong> Perfect for phone cases</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="Wood Fill Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>Wood Fill</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Natural Look:</strong> Contains real wood particles</p>
+                                <p><strong>Sandable:</strong> Can be stained and finished</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                                alt="Metal Fill Filament" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>Metal Fill</h3>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <p><strong>Metallic Finish:</strong> Contains real metal particles</p>
+                                <p><strong>Polishable:</strong> Can achieve mirror-like finish</p>
+                            </div>
+                        </div>
+                    </div>
 
         <!-- Contact Page -->
         <div id="contact" class="page-section">
@@ -1370,9 +1493,9 @@
                     <div class="detail-content">
                         <div class="detail-images">
                             <div class="image-carousel">
-                                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Electronic Housing View 1" class="carousel-image active">
-                                <img src="attached_assets/Cable_Catcher_2.png" alt="Electronic Housing View 2" class="carousel-image">
-                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Electronic Housing View 3" class="carousel-image">
+                                <img src="attached_assets/Headphone_Hanger.png" alt="Electronic Housing View 1" class="carousel-image active">
+                                <img src="attached_assets/Headphone_Hanger_2.png" alt="Electronic Housing View 2" class="carousel-image">
+                                <img src="attached_assets/Headphone_Hanger_3.gif" alt="Electronic Housing View 3" class="carousel-image">
                                 
                                 <button class="carousel-nav carousel-prev" onclick="changeImage('project3', -1)">‹</button>
                                 <button class="carousel-nav carousel-next" onclick="changeImage('project3', 1)">›</button>
@@ -1386,7 +1509,7 @@
                         </div>
                         
                         <div class="detail-info">
-                            <h1>Cable Catcher</h1>
+                            <h1>Headphone hanger</h1>
                             
                             <div class="detail-meta">
                                 <div class="detail-meta-item">
@@ -1395,26 +1518,26 @@
                                 </div>
                                 <div class="detail-meta-item">
                                     <div class="detail-meta-label">Dimensions</div>
-                                    <div class="detail-meta-value">71mm x 62mm x 48mm</div>
+                                    <div class="detail-meta-value">32mm x 81mm x 36mm</div>
                                 </div>
                                 <div class="detail-meta-item">
                                     <div class="detail-meta-label">Print time</div>
-                                    <div class="detail-meta-value">1 hour</div>
+                                    <div class="detail-meta-value">30 mimutes</div>
                                 </div>
                             </div>
                             
                             <div class="detail-description">
-                                Custom cable catcher to stop loose cables from falling behind your desk. Great for seperating clumped cables, or holding up thinner cables.
+                                A lightweight headphone hanger that clamps to the edge of a desk. Can be customized to fit around any desk, and hold any pair of headphones comfortably.
                             </div>
                             
                             <div class="detail-features">
                                 <h3>Project Features</h3>
                                 <ul>
-                                    <li>Weatherproof IP65 rated design</li>
-                                    <li>Precision cutouts for electronic components</li>
-                                    <li>Integrated cable strain relief</li>
-                                    <li>UV-resistant PETG material</li>
-                                    <li>Tool-free assembly with snap-fit design</li>
+                                    <li>Sleek and lightweight</li>
+                                    <li>Fits snuggly around desktops</li>
+                                    <li>Can hold up to 7 lbs</li>
+                                    <li>customizable with names or logos</li>
+                                    <li>Optional sticky pad for tighter a hold</li>
                                 </ul>
                             </div>
                         </div>
@@ -1622,8 +1745,8 @@
                     <div class="footer-section">
                         <h3>Services</h3>
                         <ul>
-                            <li><a href="#">Custom Modeling</a></li>
-                            <li><a href="#">3D Printing</a></li>
+                            <li><a href="#contact" onclick="showPage('contact')">Custom Modeling</a></li>
+                            <li><a href="#contact" onclick="showPage('contact')">3D Printing</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
