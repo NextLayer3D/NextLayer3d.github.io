@@ -998,18 +998,22 @@
 
                     <div class="services-grid">
                         <div class="service-card">
-                            <div class="service-icon">📦</div>
-                            <h3>Rapid manufacturing</h3>
-                            <p>
-                                Get your design printed in as little as 24 hours.
-                            </p>
+                            <a href="#contact" onclick="showPage('contact')" style="text-decoration: none; color: inherit;">
+                                <div class="service-icon">📦</div>
+                                <h3>Rapid manufacturing</h3>
+                                <p>
+                                    Get your design printed in as little as 24 hours.
+                                </p>
+                            </a>
                         </div>
                         <div class="service-card">
-                            <div class="service-icon">⚙️</div>
-                            <h3>Custom Modeling</h3>
-                            <p>
-                                Experienced CAD designers working with you every step of the way to deliver high quality products.
-                            </p>
+                            <a href="#contact" onclick="showPage('contact')" style="text-decoration: none; color: inherit;">
+                                <div class="service-icon">⚙️</div>
+                                <h3>Custom Modeling</h3>
+                                <p>
+                                    Experienced CAD designers working with you every step of the way to deliver high quality products.
+                                </p>
+                            </a>
                         </div>
                         <div class="service-card">
                             <a href="#filamentOptions" onclick="showPage('filamentOptions')" style="text-decoration: none; color: inherit;">
@@ -1058,7 +1062,7 @@
                             />
                             <div class="gallery-content">
                                 <h3>Stationary Holder</h3>
-                                <p>
+                                <p> 
                                     A Stationary holder that attaches to the Ti-84 Calculator Case. Great for students and is customizable.
                                 </p>
                                 <div class="gallery-meta">
@@ -1173,6 +1177,9 @@
         <div id="filamentOptions" class="page-section">
             <section class="section" style="padding-top: 120px">
                 <div class="container">
+                    <div style="text-align: left; margin-top: 3rem;">
+                        <a href="#home" class="back-button" onclick="showPage('home')"> ← Back to Home</a>
+                    </div>
                     <h2 class="section-title">Filament Options</h2>
                     <p class="section-subtitle">
                         Choose from our wide range of high-quality filaments for your 3D printing projects
@@ -1312,7 +1319,7 @@
 
                     <div style="text-align: center; margin-top: 3rem;">
                         <a href="#contact" class="btn btn-primary" onclick="showPage('contact')">Request Custom Color or Material</a>
-                        <a href="#home" class="btn btn-secondary" onclick="showPage('home')">Back to Home</a>
+                        <a href="#home" class="back-button" onclick="showPage('home')"> ← Back to Home</a>
                     </div>
                 </div>
             </section>
@@ -1834,6 +1841,10 @@
                         <ul>
                             <li><a href="#contact" onclick="showPage('contact')">Custom Modeling</a></li>
                             <li><a href="#contact" onclick="showPage('contact')">3D Printing</a></li>
+                        </ul>
+                        <h3>Filaments</h3>
+                        <ul>
+                            <li><a href="#filaments" onclick="showPage('filamentOptions')">Fialement Options</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
