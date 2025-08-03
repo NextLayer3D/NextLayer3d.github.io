@@ -880,6 +880,89 @@
                     font-size: 2rem;
                 }
             }
+            /* Previous Orders Page Styles */
+            .orders-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .order-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .order-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .order-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .order-content {
+                padding: 1.5rem;
+            }
+
+            .order-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: var(--text-color);
+                margin-bottom: 1rem;
+            }
+
+            .order-details {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .order-detail-item {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .order-detail-label {
+                font-size: 0.8rem;
+                color: #666;
+                margin-bottom: 0.25rem;
+                font-weight: 500;
+            }
+
+            .order-detail-value {
+                font-size: 0.9rem;
+                color: var(--text-color);
+                font-weight: 600;
+            }
+
+            .order-status {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                background: #e8f5e8;
+                color: #2d5a2d;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-top: 1rem;
+            }
+
+            .material-color {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                margin-left: 0.5rem;
+                border: 2px solid #ddd;
+                vertical-align: middle;
+            }
+
 
             /* Hidden sections initially */
             .page-section {
@@ -917,6 +1000,9 @@
                             >
                         </li>
                         <li>
+                            <a href="#previousOrders" onclick="showPage('previousOrders')">Previous Orders</a>
+                        </li>
+                        <li>
                             <a href="#team" onclick="showPage('team')"
                                 >About Team</a
                             >
@@ -944,6 +1030,11 @@
                         href="#gallery"
                         onclick="showPage('gallery'); closeMobileMenu()"
                         >Gallery</a
+                    >
+                    <a 
+                        href="#previousOrders" 
+                        onclick="showPage('previousOrders'); closeMobileMenu()"
+                        >Previous Orders</a
                     >
                     <a
                         href="#team"
@@ -1034,7 +1125,7 @@
                 <div class="container">
                     <h2 class="section-title">Our Gallery</h2>
                     <p class="section-subtitle">
-                        Explore our portfolio of successful 3D printing projects
+                        Explore our portfolio of useful 3D prints for everyone
                     </p>
 
                     <!-- Gallery Management Instructions -->
@@ -1324,6 +1415,109 @@
                 </div>
             </section>
         </div>
+
+            <!-- Previous Orders Page -->
+        <div id="previousOrders" class="page-section">
+            <section class="section" style="padding-top: 120px">
+                <div class="container">
+                    <h2 class="section-title">Previous Orders</h2>
+                    <p class="section-subtitle">
+                        A showcase of our successfully completed 3D printing orders
+                    </p>
+
+                    <div class="orders-grid">
+                        <div class="order-card">
+                            <img src="attached_assets/ChopStickHolders.png" alt="Cascading Wallet Order" class="order-image" />
+                            <div class="order-content">
+                                <h3 class="order-title">Chopstick Helpers</h3>
+                                <div class="order-details">
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Print Time</span>
+                                        <span class="order-detail-value">28 minutes</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Material</span>
+                                        <span class="order-detail-value">
+                                            PLA
+                                            <span class="material-color" style="background-color: #000000;"></span>
+                                        </span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Rating</span>
+                                        <span class="order-detail-value">5/5 🤩</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Order Date</span>
+                                        <span class="order-detail-value">June 20, 2025</span>
+                                    </div>
+                                </div>
+                                <span class="order-status">✓ Delivered</span>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <img src="attached_assets/Lego_Car_Stand.png" alt="Stationary Holder Order" class="order-image" />
+                            <div class="order-content">
+                                <h3 class="order-title">Lego Car Stand</h3>
+                                <div class="order-details">
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Print Time</span>
+                                        <span class="order-detail-value">4 Hours 35 Mins</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Material</span>
+                                        <span class="order-detail-value">
+                                            PLA
+                                            <span class="material-color" style="background-color: #000000;"></span>
+                                        </span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Rating</span>
+                                        <span class="order-detail-value">4.2/5 👏</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Order Date</span>
+                                        <span class="order-detail-value">July 2, 2025</span>
+                                    </div>
+                                </div>
+                                <span class="order-status">✓ Delivered</span>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <img src="attached_assets/Fidget_Ring.png" alt="Fidget Ring" class="order-image" />
+                            <div class="order-content">
+                                <h3 class="order-title">Fidget Ring</h3>
+                                <div class="order-details">
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Print Time</span>
+                                        <span class="order-detail-value">22 mins</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Material</span>
+                                        <span class="order-detail-value">
+                                            PLA/PETG
+                                            <span class="material-color" style="background-color: #b76658;"></span>
+                                            <span class="material-color" style="background-color: #8bb2cf;"></span>
+                                        </span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Rating</span>
+                                        <span class="order-detail-value">4.2/5 👏</span>
+                                    </div>
+                                    <div class="order-detail-item">
+                                        <span class="order-detail-label">Order Date</span>
+                                        <span class="order-detail-value">July 26, 2025</span>
+                                    </div>
+                                </div>
+                                <span class="order-status">✓ Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
         <!-- Contact Page -->
         <div id="contact" class="page-section">
             <section class="section contact-section" style="padding-top: 120px">
@@ -1840,7 +2034,7 @@
                         <h3>Services</h3>
                         <ul>
                             <li><a href="#contact" onclick="showPage('contact')">Custom Modeling</a></li>
-                            <li><a href="#contact" onclick="showPage('contact')">3D Printing</a></li>
+                            <li><a href="#previous" onclick="showPage('previousOrders')">3D Printing</a></li>
                         </ul>
                         <h3>Filaments</h3>
                         <ul>
